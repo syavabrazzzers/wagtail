@@ -11,7 +11,7 @@ declare global {
 
 const DEFAULT_DURATIONS = {
   initial: 10_000,
-  long: 3_000,
+  long: 300,
   notify: 30,
   short: 300,
 };
@@ -99,6 +99,8 @@ export class UnsavedController extends Controller<HTMLFormElement> {
     this.clear();
     const durations = this.durationsValue;
     const watch = this.watchValue;
+
+    console.log('CONNECTED TO CHECKING UNSAVED EDITS');
 
     if (watch.includes('comments')) this.watchComments(durations);
     if (watch.includes('edits')) this.watchEdits(durations);
